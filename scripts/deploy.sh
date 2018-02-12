@@ -6,4 +6,4 @@ cd build
 git init
 git add .
 git commit -m "Deploy to GitHub Pages"
-git push --force --quiet git@github.com:jondlm/react-keyframer.git master:gh-pages
+git push --force --quiet git@github.com:jondlm/kubernetes-animated.git master:gh-pages
