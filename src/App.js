@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NodeGroup from 'react-move/NodeGroup';
 import { easeExpInOut, easeElasticInOut } from 'd3-ease';
-import './App.css';
 
 const blue = "#2e6be2"
 const orange = "#ff8700"
@@ -103,7 +102,14 @@ const width = 800
 const height = 800
 const defaultTiming = { duration: 850, ease: easeExpInOut }
 
-const states = [
+const stories = [
+  { name: 'Container organization', start: 1, end: 3 },
+  { name: 'Auto-restart', start: 3, end: 6 },
+  { name: 'Auto-scale', start: 6, end: 10 },
+  { name: 'Node failure self-healing', start: 10, end: 15 },
+];
+
+const keyframes = [
   // key 0
   [],
   // key 1
@@ -291,16 +297,15 @@ const states = [
 
 class App extends Component {
   state = {
-    currentStateIndex: 15,
+    currentStateIndex: 1,
     debugMode: false,
-  }
-
-  handleStart = () => {
-    this.setState({ currentStateIndex: 0 })
+    snapToGrid: true,
+    mouseX: 0,
+    mouseY: 0,
   }
 
   handleForward = () => {
-    if (this.state.currentStateIndex < states.length - 1) {
+    if (this.state.currentStateIndex < keyframes.length - 1) {
       this.setState({ currentStateIndex: this.state.currentStateIndex + 1 })
     }
   }
@@ -315,29 +320,43 @@ class App extends Component {
     this.setState({ debugMode: !this.state.debugMode })
   }
 
+  handleSnapToGridToggle = () => {
+    this.setState({ snapToGrid: !this.state.snapToGrid })
+  }
+
   render() {
     const { mouseX, mouseY, debugMode } = this.state;
 
     return (
-      <div>
-        <div>
-          <div>
-            <button onClick={this.handleDebugModeToggle}>debug mode</button>
-          </div>
-          <div>
-            <button onClick={this.handleStart}>start</button>
-          </div>
-          <button onClick={this.handleBackward}>backward</button>
-          <button onClick={this.handleForward}>forward</button>
-          <span style={{ marginLeft: 10 }}>Keyframe: {this.state.currentStateIndex}</span>
+      <div className="App">
+        <div className="floater">
+          <label>
+            debug mode
+            <input type="checkbox" onChange={this.handleDebugModeToggle} checked={this.state.debugMode} />
+          </label>
+          <label>
+            snap to grid
+            <input type="checkbox" onChange={this.handleSnapToGridToggle} checked={this.state.snapToGrid} />
+          </label>
+          {stories.map((story) => (
+            <button onClick={() => { this.setState({ currentStateIndex: story.start })}}>{story.name}</button>
+          ))}
+          <span>Keyframe: {this.state.currentStateIndex}</span>
           {debugMode ?
-            <span> ({mouseX}, {mouseY})</span>
+            <span> ({Math.round(mouseX)}, {Math.round(mouseY)})</span>
           : null}
+          <div style={{ display: 'flex' }}>
+            <button onClick={this.handleBackward}>backward</button>
+            <button onClick={this.handleForward}>forward</button>
+          </div>
         </div>
+        <br />
+        <br />
         <svg
           width={width}
           height={height}
           viewBox={`0 0 ${width} ${height}`}
+          className="artboard"
         >
           {/* grid lines */}
           {debugMode ?
@@ -356,7 +375,7 @@ class App extends Component {
 
           {/* objects */}
           <NodeGroup
-            data={states[this.state.currentStateIndex]}
+            data={keyframes[this.state.currentStateIndex]}
             keyAccessor={d => d.key}
             start={() => ({
               x: (width / 2),
@@ -409,8 +428,8 @@ class App extends Component {
           {/* outline */}
           {debugMode ?
             <g>
-              <line stroke="#ccc" strokeWidth="0.5" x1="0" y1={mouseY} x2={width} y2={mouseY} />
-              <line stroke="#ccc" strokeWidth="0.5" x1={mouseX} y1="0" x2={mouseX} y2={height} />
+              <line stroke="#555" strokeWidth="0.5" x1="0" y1={mouseY} x2={width} y2={mouseY} />
+              <line stroke="#555" strokeWidth="0.5" x1={mouseX} y1="0" x2={mouseX} y2={height} />
               <rect
                 fill="white"
                 opacity="0.001"
@@ -421,8 +440,17 @@ class App extends Component {
                 onMouseMove={({ clientY, clientX, target }) => {
                   const x = clientX - target.getBoundingClientRect().left
                   const y = clientY - target.getBoundingClientRect().top
+                  const step = width / gridSize
+                  const stepMid = step / 2
+                  const xMod = x % step
+                  const xSnapped = xMod > stepMid ? x + (step - xMod) : x - xMod
+                  const yMod = y % step
+                  const ySnapped = yMod > stepMid ? y + (step - yMod) : y - yMod
 
-                  this.setState({ mouseX: x, mouseY: y })
+                  this.setState({
+                    mouseX: this.state.snapToGrid ? xSnapped : x,
+                    mouseY: this.state.snapToGrid ? ySnapped : y,
+                  })
                 }}
               />
             </g>
