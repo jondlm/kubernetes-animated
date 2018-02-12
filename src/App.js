@@ -101,6 +101,15 @@ class LineUpRight extends Component {
 const width = 800
 const height = 800
 const defaultTiming = { duration: 850, ease: easeExpInOut }
+const defaultAnim = (overwrites) => ({
+  x: [0],
+  y: [0],
+  opacity: [1],
+  scale: [1],
+  rotate: [0],
+  timing: defaultTiming,
+  ...overwrites,
+});
 
 const stories = [
   { name: 'Container organization', start: 1, end: 3 },
@@ -114,184 +123,184 @@ const keyframes = [
   [],
   // key 1
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [493], y: [100], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [142], y: [603], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [615], y: [562], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [200], y: [300], opacity: [1], scale: [0.75], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [493] , y: [100] , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [142] , y: [603] , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [615] , y: [562] , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [200] , y: [300] , scale: [0.75] } } ,
   ],
   // key 2
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [493], y: [100], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [142], y: [603], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [615], y: [562], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [200], y: [300], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [493]     , y: [100]          , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [142]     , y: [603]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [615]     , y: [562]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [200]     , y: [300]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
   ],
   // key 3
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
   ],
   // key 4
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
   ],
   // key 5
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1.25], timing: { duration: 1000, ease: easeElasticInOut } } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533]          , scale: [1.25]     , timing: { duration: 1000 , ease: easeElasticInOut } } } ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
   ],
   // key 6
   [
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
   ],
   // key 7
   [
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.90], timing: defaultTiming } },
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.90] } } ,
   ],
   // key 8
   [
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [1.25], timing: defaultTiming } },
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [1.25] } } ,
   ],
   // key 9
   [
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1.25], timing: { duration: 1000, ease: easeElasticInOut } } },
-    { key: 'container1', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [1.25], timing: defaultTiming } },
+    { key: 'container2' , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3' , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4' , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'       , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'      , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'      , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'      , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'      , component: LineUpRight     , anim: { x: [533]     , y: [267]          , scale: [1.25]     , timing: { duration: 1000 , ease: easeElasticInOut } } } ,
+    { key: 'container1' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [1.25] } } ,
   ],
   // key 10
   [
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
+    { key: 'container2'  , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4'  , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
   ],
   // key 11
   [
-    { key: 'container2', component: TealContainer, anim: { x: [133], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [133], y: [133], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'kubenode1', component: KubeNode, anim: { x: [133], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'kubenode2', component: KubeNode, anim: { x: [667], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container2'  , component: TealContainer   , anim: { x: [133]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4'  , component: OrangeContainer , anim: { x: [133]     , y: [133]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
+    { key: 'kubenode1'   , component: KubeNode        , anim: { x: [133]     , y: [400] } }      ,
+    { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
   // key 12
   [
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'kubenode2', component: KubeNode, anim: { x: [667], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [267]     , y: [267] } }      ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [267]     , y: [533] } }      ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
+    { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
   // key 13
   [
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1.25], rotate: [0], timing: { duration: 1000, ease: easeElasticInOut } } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1.25], rotate: [0], timing: { duration: 1000, ease: easeElasticInOut } } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'kubenode2', component: KubeNode, anim: { x: [667], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [267]     , y: [267]          , scale: [1.25]     , timing: { duration: 1000 , ease: easeElasticInOut } } } ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [267]     , y: [533]          , scale: [1.25]     , timing: { duration: 1000 , ease: easeElasticInOut } } } ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
+    { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
   // key 14
   [
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [267], y: [267], opacity: [1], scale: [1.25], rotate: [0], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [267], y: [533], opacity: [1], scale: [1.25], rotate: [0], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'kubenode2', component: KubeNode, anim: { x: [667], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [267]     , y: [267]          , scale: [1.25] } } ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [267]     , y: [533]          , scale: [1.25] } } ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
+    { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
   // key 15
   [
-    { key: 'container2', component: TealContainer, anim: { x: [667], y: [500], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container3', component: PurpleContainer, anim: { x: [667], y: [667], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'container4', component: OrangeContainer, anim: { x: [667], y: [300], opacity: [1], scale: [0.75], timing: defaultTiming } },
-    { key: 'kube', component: Kubernetes, anim: { x: [width/2], y: [height/2], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line1', component: LineUpLeft, anim: { x: [567], y: [333], opacity: [1], scale: [1], rotate: [-60], timing: defaultTiming } },
-    { key: 'line2', component: LineUpLeft, anim: { x: [533], y: [533], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'line3', component: LineUpRight, anim: { x: [567], y: [467], opacity: [1], scale: [1], rotate: [60], timing: defaultTiming } },
-    { key: 'line4', component: LineUpRight, anim: { x: [533], y: [267], opacity: [1], scale: [1], timing: defaultTiming } },
-    { key: 'container1', component: PinkContainer, anim: { x: [633], y: [100], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1b', component: PinkContainer, anim: { x: [667], y: [133], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'container1c', component: PinkContainer, anim: { x: [698], y: [167], opacity: [1], scale: [0.5], timing: defaultTiming } },
-    { key: 'kubenode2', component: KubeNode, anim: { x: [667], y: [400], opacity: [1], scale: [1], timing: defaultTiming } },
+    { key: 'container2'  , component: TealContainer   , anim: { x: [667]     , y: [500]          , scale: [0.75] } } ,
+    { key: 'container3'  , component: PurpleContainer , anim: { x: [667]     , y: [667]          , scale: [0.75] } } ,
+    { key: 'container4'  , component: OrangeContainer , anim: { x: [667]     , y: [300]          , scale: [0.75] } } ,
+    { key: 'kube'        , component: Kubernetes      , anim: { x: [width/2] , y: [height/2] } } ,
+    { key: 'line1'       , component: LineUpLeft      , anim: { x: [567]     , y: [333]          , rotate: [-60] } } ,
+    { key: 'line2'       , component: LineUpLeft      , anim: { x: [533]     , y: [533] } }      ,
+    { key: 'line3'       , component: LineUpRight     , anim: { x: [567]     , y: [467]          , rotate: [60] } }  ,
+    { key: 'line4'       , component: LineUpRight     , anim: { x: [533]     , y: [267] } }      ,
+    { key: 'container1'  , component: PinkContainer   , anim: { x: [633]     , y: [100]          , scale: [0.5] } }  ,
+    { key: 'container1b' , component: PinkContainer   , anim: { x: [667]     , y: [133]          , scale: [0.5] } }  ,
+    { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
+    { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
 ];
 
@@ -330,25 +339,25 @@ class App extends Component {
     return (
       <div className="App">
         <div className="floater">
+          {stories.map((story) => (
+            <button style={{ width: '100%' }} onClick={() => { this.setState({ currentStateIndex: story.start })}}>{story.name}</button>
+          ))}
+          <div style={{ display: 'flex' }}>
+            <button style={{ flexGrow: 1 }} onClick={this.handleBackward}>←</button>
+            <button style={{ flexGrow: 1 }} onClick={this.handleForward}>→</button>
+          </div>
           <label>
             debug mode
             <input type="checkbox" onChange={this.handleDebugModeToggle} checked={this.state.debugMode} />
           </label>
-          <label>
-            snap to grid
-            <input type="checkbox" onChange={this.handleSnapToGridToggle} checked={this.state.snapToGrid} />
-          </label>
-          {stories.map((story) => (
-            <button onClick={() => { this.setState({ currentStateIndex: story.start })}}>{story.name}</button>
-          ))}
-          <span>Keyframe: {this.state.currentStateIndex}</span>
-          {debugMode ?
-            <span> ({Math.round(mouseX)}, {Math.round(mouseY)})</span>
-          : null}
-          <div style={{ display: 'flex' }}>
-            <button onClick={this.handleBackward}>backward</button>
-            <button onClick={this.handleForward}>forward</button>
-          </div>
+          {debugMode ? [
+            <label>
+              snap to grid
+              <input type="checkbox" onChange={this.handleSnapToGridToggle} checked={this.state.snapToGrid} />
+            </label>,
+            <span>Keyframe: {this.state.currentStateIndex}</span>,
+            <span> ({Math.round(mouseX)}, {Math.round(mouseY)})</span>,
+          ] : null}
         </div>
         <br />
         <br />
@@ -375,7 +384,7 @@ class App extends Component {
 
           {/* objects */}
           <NodeGroup
-            data={keyframes[this.state.currentStateIndex]}
+            data={keyframes[this.state.currentStateIndex].map((item) => ({ ...item, anim: defaultAnim(item.anim) }))}
             keyAccessor={d => d.key}
             start={() => ({
               x: (width / 2),

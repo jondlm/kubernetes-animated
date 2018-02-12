@@ -17,13 +17,11 @@ html, body, #root, .App {
 
 .floater {
   padding: 5px;
-  background-color: #2e3440;
-  color: #eceff4;
   position: fixed;
   top: 0;
   right: 0;
   border-bottom-left-radius: 3px;
-  box-shadow: 0 0 5px #2e3440;
+  box-shadow: 0 0 3px #2e3440;
 }
 
 .floater > * {
@@ -37,6 +35,4 @@ html, body, #root, .App {
 .artboard {
   flex-shrink: 0;
 }
-
-
 
