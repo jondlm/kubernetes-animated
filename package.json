@@ -2,7 +2,7 @@
   "name": "animations",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jondlm.github.io/react-keyframer",
+  "homepage": "http://jondlm.github.io/kubernetes-animated",
   "dependencies": {
     "d3-ease": "^1.0.3",
     "react": "^16.2.0",
