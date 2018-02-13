@@ -33,7 +33,7 @@ class Container extends Component {
     )
   }
 }
-class BlueContainer extends Container { render() { return <Container color={blue} /> } }
+// class BlueContainer extends Container { render() { return <Container color={blue} /> } }
 class OrangeContainer extends Container { render() { return <Container color={orange} /> } }
 class PinkContainer extends Container { render() { return <Container color={pink} /> } }
 class PurpleContainer extends Container { render() { return <Container color={purple} /> } }
@@ -47,7 +47,7 @@ class Kubernetes extends Component {
 
   render() {
     return (
-      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+      <g stroke="none" strokeWidth="1" fill="#ffffff" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
         <g transform="translate(3.000000, 5.000000)" stroke={blue} strokeWidth="8">
           <polygon points="98 0 174.619485 36.8979994 193.542935 119.807052 140.520606 186.294949 55.4793936 186.294949 2.45706461 119.807052 21.3805147 36.8979994"></polygon>
           <polygon points="98 98.7487467 67.737153 161.590196 98 98.7487467 30 114.269303 98 98.7487467 43.468234 55.2611144 98 98.7487467 98 29 98 98.7487467 152.531766 55.2611144 98 98.7487467 166 114.269303 98 98.7487467 128.262847 161.590196"></polygon>
@@ -98,6 +98,113 @@ class LineUpRight extends Component {
   }
 }
 
+class DevSettings extends Component {
+  static width = 256
+  static height = 286
+  static centerX = DevSettings.width / 2
+  static centerY = DevSettings.height / 2
+
+  render() {
+    return (
+      <g transform="translate(3, 3)">
+        <rect stroke="#00B8C8" strokeWidth="6" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" x="0" y="0" width="250" height="280" rx="15"></rect>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill="#00B8C8">
+          <tspan x="24" y="63">dev:</tspan>
+          <tspan x="24" y="91">	thing: false</tspan>
+        </text>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill="#00B8C8">
+          <tspan x="17" y="205">constrained:</tspan>
+          <tspan x="17" y="233">	memory: 100Mi</tspan>
+        </text>
+        <path d="M0,140 L251.182205,140" stroke="#00B8C8" strokeWidth="5"></path>
+      </g>
+    )
+  }
+}
+
+class ProdSettings extends Component {
+  static width = 256
+  static height = 286
+  static centerX = ProdSettings.width / 2
+  static centerY = ProdSettings.height / 2
+
+  render() {
+    return (
+      <g transform="translate(3, 3)">
+        <rect stroke={pink} strokeWidth="6" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" x="0" y="0" width="250" height="280" rx="15"></rect>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill={pink}>
+          <tspan x="24" y="63">production:</tspan>
+          <tspan x="24" y="91">	thing: true</tspan>
+        </text>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill={pink}>
+          <tspan x="17" y="205">natural:</tspan>
+          <tspan x="17" y="233">	memory: 1Gi</tspan>
+        </text>
+        <path d="M0,140 L251.182205,140" stroke={pink} strokeWidth="5"></path>
+      </g>
+    )
+  }
+}
+
+class Ankh extends Component {
+  static width = 100
+  static height = 100
+  static centerX = 50
+  static centerY = 50
+
+  render() {
+    return (
+      <rect stroke={blue} strokeWidth="8" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" x="0" y="0" width="100" height="100" rx="15"></rect>
+    )
+  }
+}
+
+class Chart extends Component {
+  static width = 108.5
+  static height = 140.5
+  static centerX = Chart.width / 2
+  static centerY = Chart.height / 2
+
+  render() {
+    return (
+      <g transform="translate(3, 3)">
+        <path d="M0,10.5541699 L10.539501,3.94131731e-13 L87,-5.32907052e-14 C94.1797017,-8.64938758e-14 100,5.82029825 100,13 L100,108.382979 C100,115.399257 96.3233645,121.902444 90.3115063,125.519864 L86.1897218,128 L0,10.5541699 Z" stroke="#2E6BE2" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="#ffffff"></path>
+        <path d="M0,11 L78,11 C84.0751322,11 89,15.9248678 89,22 L89,120 C89,126.627417 83.627417,132 77,132 L0,132 L0,11 Z" stroke="#2E6BE2" strokeWidth="6" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"></path>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill="#2E6BE2">
+          <tspan x="9" y="113">{"{{ }}"}</tspan>
+        </text>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="24" fontWeight="normal" fill="#2E6BE2">
+          <tspan x="8" y="43">helm</tspan>
+          <tspan x="8" y="71">chart</tspan>
+        </text>
+      </g>
+    )
+  }
+}
+
+class YamlFile extends Component {
+  static width = 98
+  static height = 131
+  static centerX = YamlFile.width / 2
+  static centerY = YamlFile.height / 2
+
+  render() {
+    return (
+      <g transform="translate(3.000000, 3.000000)">
+        <rect stroke={pink} strokeWidth="6" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" x="0" y="0" width="92" height="125" rx="15"></rect>
+        <path d="M18,48.5 L79.6836735,48.5" stroke={pink} strokeWidth="3"></path>
+        <path d="M18,61.5 L74.6868132,61.5" stroke={pink} strokeWidth="3"></path>
+        <path d="M18,75.5 L72.683908,75.5" stroke={pink} strokeWidth="3"></path>
+        <path d="M18,88.5 L69.6829268,88.5" stroke={pink} strokeWidth="3"></path>
+        <path d="M18,102.5 L76.6827957,102.5" stroke={pink} strokeWidth="3"></path>
+        <text fontFamily="Menlo-Regular, Menlo" fontSize="22" fontWeight="normal" fill={pink} >
+          <tspan x="13" y="34">.yaml</tspan>
+        </text>
+      </g>
+    )
+  }
+}
+
 const width = 800
 const height = 800
 const defaultTiming = { duration: 850, ease: easeExpInOut }
@@ -112,10 +219,11 @@ const defaultAnim = (overwrites) => ({
 });
 
 const stories = [
-  { name: 'Container organization', start: 1, end: 3 },
-  { name: 'Auto-restart', start: 3, end: 6 },
-  { name: 'Auto-scale', start: 6, end: 10 },
-  { name: 'Node failure self-healing', start: 10, end: 15 },
+  { name: 'Container organization', start: 1, timings: [0, 1000, 2000] },
+  { name: 'Auto-restart', start: 3, timings: [0, 1000, 2000, 3000] },
+  { name: 'Auto-scale', start: 6, timings: [0, 1000, 2000, 3000, 4000] },
+  { name: 'Node failure self-healing', start: 10, timings: [0, 1000, 3500, 4000, 5700, 6000] },
+  { name: 'Ankh apply', start: 16, timings: [0, 2000, 5000, 6000, 8000, 10000] },
 ];
 
 const keyframes = [
@@ -302,6 +410,58 @@ const keyframes = [
     { key: 'container1c' , component: PinkContainer   , anim: { x: [698]     , y: [167]          , scale: [0.5] } }  ,
     { key: 'kubenode2'   , component: KubeNode        , anim: { x: [667]     , y: [400] } }      ,
   ],
+  // key 16
+  [
+    { key: 'dev'   , component: DevSettings  , anim: { x: [700] , y: [200]     , scale: [0.6] } } ,
+    { key: 'prod'  , component: ProdSettings , anim: { x: [700] , y: [600]     , scale: [0.6] } } ,
+    { key: 'chart' , component: Chart        , anim: { x: [533] , y: [400]     , scale: [0.8] } } ,
+    { key: 'kube'  , component: Kubernetes   , anim: { x: [133] , y: [400] } } ,
+  ],
+  // key 17
+  [
+    { key: 'prod'  , component: ProdSettings , anim: { x: [700] , y: [600]     , scale: [0.75] } } ,
+    { key: 'chart' , component: Chart        , anim: { x: [533] , y: [400]     , scale: [0.8] } }  ,
+    { key: 'kube'  , component: Kubernetes   , anim: { x: [133] , y: [400] } } ,
+  ],
+  // key 18
+  [
+    { key: 'prod'  , component: ProdSettings , anim: { x: [533] , y: [400]     , scale: [0.2] } } ,
+    { key: 'yaml1' , component: YamlFile     , anim: { x: [533] , y: [400]     , scale: [0.6]     , opacity: [0] } }         ,
+    { key: 'yaml2' , component: YamlFile     , anim: { x: [533] , y: [400]     , scale: [0.6]     , opacity: [0] } }         ,
+    { key: 'yaml3' , component: YamlFile     , anim: { x: [533] , y: [400]     , scale: [0.6]     , opacity: [0] } }         ,
+    { key: 'kube'  , component: Kubernetes   , anim: { x: [133] , y: [400] } } ,
+    { key: 'chart' , component: Chart        , anim: { x: [533] , y: [400]     , scale: [0.9]     , timing: { duration: 1000 , ease: easeElasticInOut } } } ,
+  ],
+  // key 19
+  [
+    { key: 'prod'  , component: ProdSettings , anim: { x: [533] , y: [400]     , scale: [0.2] } } ,
+    { key: 'yaml1' , component: YamlFile     , anim: { x: [333] , y: [367]     , scale: [0.6] } } ,
+    { key: 'yaml2' , component: YamlFile     , anim: { x: [349] , y: [400]     , scale: [0.6] } } ,
+    { key: 'yaml3' , component: YamlFile     , anim: { x: [365] , y: [433]     , scale: [0.6] } } ,
+    { key: 'kube'  , component: Kubernetes   , anim: { x: [133] , y: [400] } } ,
+    { key: 'chart' , component: Chart        , anim: { x: [533] , y: [400]     , scale: [0.8] } } ,
+  ],
+  // key 20
+  [
+    { key: 'line1'      , component: LineUpLeft    , anim: { x: [133] , y: [400]     , rotate: [45], opacity: [0] } } ,
+    { key: 'prod'  , component: ProdSettings , anim: { x: [533] , y: [400] , scale: [0.2] } } ,
+    { key: 'yaml1' , component: YamlFile     , anim: { x: [133] , y: [400] , scale: [0.2] } } ,
+    { key: 'yaml2' , component: YamlFile     , anim: { x: [133] , y: [400] , scale: [0.2] } } ,
+    { key: 'yaml3' , component: YamlFile     , anim: { x: [133] , y: [400] , scale: [0.2] } } ,
+    { key: 'kube'  , component: Kubernetes   , anim: { x: [133] , y: [400] , scale: [1.15]    , timing: { duration: 1000 , ease: easeElasticInOut}} } ,
+    { key: 'chart' , component: Chart        , anim: { x: [533] , y: [400] , scale: [0.8] } } ,
+  ],
+  // key 21
+  [
+    { key: 'container1' , component: PinkContainer , anim: { x: [133] , y: [67]      , scale: [0.75] } } ,
+    { key: 'line1'      , component: LineUpLeft    , anim: { x: [133] , y: [200]     , rotate: [45] } } ,
+    { key: 'prod'       , component: ProdSettings  , anim: { x: [533] , y: [400]     , scale: [0.2] } } ,
+    { key: 'yaml1'      , component: YamlFile      , anim: { x: [133] , y: [400]     , scale: [0.2] } } ,
+    { key: 'yaml2'      , component: YamlFile      , anim: { x: [133] , y: [400]     , scale: [0.2] } } ,
+    { key: 'yaml3'      , component: YamlFile      , anim: { x: [133] , y: [400]     , scale: [0.2] } } ,
+    { key: 'kube'       , component: Kubernetes    , anim: { x: [133] , y: [400] } } ,
+    { key: 'chart'      , component: Chart         , anim: { x: [533] , y: [400]     , scale: [0.8] } } ,
+  ],
 ];
 
 class App extends Component {
@@ -340,7 +500,22 @@ class App extends Component {
       <div className="App">
         <div className="floater">
           {stories.map((story) => (
-            <button style={{ width: '100%' }} onClick={() => { this.setState({ currentStateIndex: story.start })}}>{story.name}</button>
+            <button
+              style={{ width: '100%' }}
+              onClick={() => {
+                this.setState({ currentStateIndex: story.start })
+
+                story.timings.reduce((acc, t) => {
+                  setTimeout(() => {
+                    this.setState({ currentStateIndex: acc })
+                  }, t);
+
+                  return acc + 1
+                }, story.start)
+              }}
+            >
+              {story.name}
+            </button>
           ))}
           <div style={{ display: 'flex' }}>
             <button style={{ flexGrow: 1 }} onClick={this.handleBackward}>←</button>
@@ -359,8 +534,6 @@ class App extends Component {
             <span> ({Math.round(mouseX)}, {Math.round(mouseY)})</span>,
           ] : null}
         </div>
-        <br />
-        <br />
         <svg
           width={width}
           height={height}
@@ -386,22 +559,22 @@ class App extends Component {
           <NodeGroup
             data={keyframes[this.state.currentStateIndex].map((item) => ({ ...item, anim: defaultAnim(item.anim) }))}
             keyAccessor={d => d.key}
-            start={() => ({
-              x: (width / 2),
-              y: (height / 2),
+            start={({ anim: { x, y, rotate }}) => ({
+              x: x,
+              y: y,
               opacity: 0,
               scale: 0.5,
-              rotate: 0,
+              rotate: rotate,
             })}
             enter={({ anim }) => ({ ...anim })}
             update={({ anim }) => ({ ...anim })}
-            leave={({ anim: { x, y } }) => {
+            leave={({ anim: { x, y, rotate } }) => {
               return {
                 x: [x[0]],
                 y: [y[0]],
                 opacity: [0],
                 scale: [0.25],
-                rotate: [0],
+                rotate: [rotate[0]],
               }
             }}
           >

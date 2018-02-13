@@ -16,11 +16,12 @@ html, body, #root, .App {
 }
 
 .floater {
+  background-color: white;
   padding: 5px;
   position: fixed;
   top: 0;
-  right: 0;
-  border-bottom-left-radius: 3px;
+  left: 0;
+  border-bottom-right-radius: 3px;
   box-shadow: 0 0 3px #2e3440;
 }
 
