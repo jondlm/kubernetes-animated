@@ -40,8 +40,8 @@ class PurpleContainer extends Container { render() { return <Container color={pu
 class TealContainer extends Container { render() { return <Container color={teal} /> } }
 
 class Kubernetes extends Component {
-  static width = 205
-  static height = 200
+  static width = 202.4
+  static height = 197.6
   static centerX = Kubernetes.width / 2
   static centerY = Kubernetes.height / 2
 
@@ -146,19 +146,6 @@ class ProdSettings extends Component {
   }
 }
 
-class Ankh extends Component {
-  static width = 100
-  static height = 100
-  static centerX = 50
-  static centerY = 50
-
-  render() {
-    return (
-      <rect stroke={blue} strokeWidth="8" fill="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" x="0" y="0" width="100" height="100" rx="15"></rect>
-    )
-  }
-}
-
 class Chart extends Component {
   static width = 108.5
   static height = 140.5
@@ -223,7 +210,7 @@ const stories = [
   { name: 'Auto-restart', start: 3, timings: [0, 1000, 2000, 3000] },
   { name: 'Auto-scale', start: 6, timings: [0, 1000, 2000, 3000, 4000] },
   { name: 'Node failure self-healing', start: 10, timings: [0, 1000, 3500, 4000, 5700, 6000] },
-  { name: 'Ankh apply', start: 16, timings: [0, 2000, 5000, 6000, 8000, 10000] },
+  { name: 'Ankh apply', start: 16, timings: [0, 2000, 5000, 6000, 8000, 8700] },
 ];
 
 const keyframes = [
@@ -607,7 +594,7 @@ class App extends Component {
             )}
           </NodeGroup>
 
-          {/* outline */}
+          {/* mouse reticles */}
           {debugMode ?
             <g>
               <line stroke="#555" strokeWidth="0.5" x1="0" y1={mouseY} x2={width} y2={mouseY} />
