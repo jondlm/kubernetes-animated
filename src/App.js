@@ -486,7 +486,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="floater">
-          {stories.map((story) => (
+          {/*stories.map((story) => (
             <button
               style={{ width: '100%' }}
               onClick={() => {
@@ -503,10 +503,10 @@ class App extends Component {
             >
               {story.name}
             </button>
-          ))}
+          ))*/}
           <div style={{ display: 'flex' }}>
             <button style={{ flexGrow: 1 }} onClick={this.handleBackward}>←</button>
-            <button style={{ flexGrow: 1 }} onClick={this.handleForward}>→</button>
+            <button style={{ flexGrow: 1, marginLeft: 5 }} onClick={this.handleForward}>→</button>
           </div>
           <label>
             debug mode
